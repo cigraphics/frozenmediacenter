@@ -1,5 +1,7 @@
 package net.frozenlogic.mediacenter.impl.plugins.goodreads;
 
+
+import net.frozenlogic.mediacenter.ModelAndView;
 import net.frozenlogic.mediacenter.activities.Activity;
 import net.frozenlogic.mediacenter.activities.ActivityContext;
 import net.frozenlogic.mediacenter.activities.ActivityType;
@@ -11,6 +13,7 @@ public class GoodreadsUserGroupActivity implements Activity {
     @Override
     public void initialize(ActivityContext activityContext) {
         UiActivityContext context = (UiActivityContext) activityContext;
+        context.setModelAndView(new ModelAndView("/templates/goodreads/search.jsp", new Object()));
     }
 
     @Override
@@ -23,6 +26,8 @@ public class GoodreadsUserGroupActivity implements Activity {
         }
         catch (GoodreadsClientException ex) {
             throw new RuntimeException(ex);
+
+
         }
     }
 

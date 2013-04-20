@@ -2,6 +2,8 @@
 <table>
     <thead>
     <tr>
+
+        <th>Coperta</th>
         <th>Group</th>
         <th>Tip</th>
         <th>Ultima activitate</th>

@@ -26,8 +26,8 @@ public class GoodreadsPlugin implements InteractionPlugin {
 
     @Override
     public Activity getInteractionActivity() {
-        //  return new BooksSearchActivity();
-        return new GoodreadsUserGroupActivity();
+         //return new BookSearchActivity();
+       return new GoodreadsUserGroupActivity();
     }
 
     @Override

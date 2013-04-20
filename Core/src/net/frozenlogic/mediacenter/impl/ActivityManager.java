@@ -40,7 +40,11 @@ public class ActivityManager {
 
     public void executeActivity(ServiceContext context) throws IOException, ServletException {
         ActivityContext activityContext = this.getActivityContext(this.currentActivity, context);
-        this.setCurrentActivity(this.currentActivity.perform(activityContext), context);
+        try{
+            this.setCurrentActivity(this.currentActivity.perform(activityContext), context);
+        }  catch(Exception ex){
+            throw new ServletException(ex) ;
+        }
         this.handleActivityContext(activityContext, context);
     }
 

@@ -36,71 +36,24 @@ public class GoodreadsGroupClient {
                 Node node = nodeList.item(i);
                 if (node instanceof Element) {
                     Element element = (Element) node;
-                    //Node booksCountNode = this.getSingleNode(element, "books_count");
-                    // Node ratingsCountNode = this.getSingleNode(element, "ratings_count");
-                    // Node averageRatingNode = this.getSingleNode(element, "average_rating");
+
                     Node groupTitleNode=this.getSingleNode(element,"title");
                     Node groupImageUrlNode=this.getSingleNode(element,"image_url");
                     Node groupTypeNode=this.getSingleNode(element,"access");
                     Node groupLastActivityNode=this.getSingleNode(element,"last_activity_at");
-                    //Integer booksCount = Integer.parseInt(booksCountNode.getTextContent());
-                    //Integer ratingsCount = Integer.parseInt(ratingsCountNode.getTextContent());
-                    //BigDecimal averageRating = new BigDecimal(averageRatingNode.getTextContent());
-                    String groupTitle=groupTitleNode.toString();
-                    String groupImageUrl=groupImageUrlNode.toString();
-                    String groupType=groupTypeNode.toString();
-                    String groupLastActivity=groupLastActivityNode.toString();
-                    //SearchResult searchResult = new SearchResult();
-                    //searchResult.setAverageRating(averageRating);
-                    //searchResult.setRatingsCount(ratingsCount);
+
+                    String groupTitle=groupTitleNode.getTextContent();
+                    String groupImageUrl=groupImageUrlNode.getTextContent();
+                    String groupType=groupTypeNode.getTextContent();
+                    String groupLastActivity=groupLastActivityNode.getTextContent();
+
 
                     GoodreadsUserGroup bookGroup=new GoodreadsUserGroup();
                     bookGroup.setTitle(groupTitle);
                     bookGroup.setThumbnailCoverUrl(groupImageUrl);
                     bookGroup.setType(groupType);
                     bookGroup.setLastActivity(groupLastActivity);
-                    /*
-                    Node bestBookNode = this.getSingleNode(element, "best_book");
-                    if (!(bestBookNode instanceof Element))
-                        throw new GoodreadsClientException("The given result is not valid.");
-
-                    Element bestBookElement = (Element) bestBookNode;
-
-                    Node bookIdNode = this.getSingleNode(bestBookElement, "id");
-                    Node bookTitleNode = this.getSingleNode(bestBookElement, "title");
-                    Node fullCoverNode = this.getSingleNode(bestBookElement, "image_url");
-                    Node thumbnailCoverNode = this.getSingleNode(bestBookElement, "small_image_url");
-
-                    Integer idBook = Integer.parseInt(bookIdNode.getTextContent());
-                    String title = bookTitleNode.getTextContent();
-                    String fullCoverUrl = fullCoverNode.getTextContent();
-                    String thumbnailCoverUrl = thumbnailCoverNode.getTextContent();
-
-                    Node authorNode = this.getSingleNode(bestBookElement, "author");
-                    if (!(authorNode instanceof Element))
-                        throw new GoodreadsClientException("The given result is not valid.");
-
-                    Element authorElement = (Element) authorNode;
-                    Node authorIdNode = this.getSingleNode(authorElement, "id");
-                    Node authorNameNode = this.getSingleNode(authorElement, "name");
-
-                    Integer idAuthor = Integer.parseInt(authorIdNode.getTextContent());
-                    String authorName = authorNameNode.getTextContent();
-
-                    Author author = new Author();
-                    author.setIdAuthor(idAuthor);
-                    author.setName(authorName);
-
-                    Book book = new Book();
-                    book.setFullCoverUrl(fullCoverUrl);
-                    book.setIdBook(idBook);
-                    book.setThumbnailCoverUrl(thumbnailCoverUrl);
-                    book.setTitle(title);
-                    book.setAuthor(author);
-
-                    searchResult.setBestBook(book);
-
-                    resultList.add(searchResult);     */
+                    resultList.add(bookGroup);
 
                 }
             }

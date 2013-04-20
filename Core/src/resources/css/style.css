@@ -24,3 +24,6 @@ body {
 #logo span {
     font-weight: normal;
 }
+table th, table td{
+    padding: 5px;
+}
