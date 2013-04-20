@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="MainServiceProvider" class="net.frozenlogic.mediacenter.impl.MainServiceProvider"/>
+
+    <bean class="net.frozenlogic.mediacenter.impl.ServiceProvidersManagerImpl" name="ServiceProvidersManager">
+        <property name="serviceProviderMap">
+            <map key-type="java.lang.String" value-type="net.frozenlogic.mediacenter.ServiceProvider">
+                <entry key="/" value-ref="MainServiceProvider"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
