@@ -11,18 +11,18 @@ import java.util.List;
 public class PicasaPhotosActivity implements Activity {
     private List<Photo> album;
 
-    PicasaPhotosActivity(List<Photo> album){
+    public PicasaPhotosActivity(List<Photo> album){
         this.album = album;
     }
 
     @Override
     public void initialize(ActivityContext activityContext) {
         UiActivityContext context = (UiActivityContext) activityContext;
-        context.setModelAndView(new ModelAndView("/templates/picasa/picasaAlbum.jsp", this.album));
+        context.setModelAndView(new ModelAndView("/templates/picasa/albumsList.jsp", this.album));
     }
 
     @Override
-    public Activity perform(ActivityContext activityContext) throws PicasaPhotosClientException {
+    public Activity perform(ActivityContext activityContext) throws PicasaClientException {
         return null;
     }
 

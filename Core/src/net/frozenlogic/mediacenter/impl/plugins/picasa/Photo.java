@@ -3,6 +3,7 @@ package net.frozenlogic.mediacenter.impl.plugins.picasa;
 import java.net.URL;
 
 public class Photo {
+
     private String photoThumbnail;
     private String title;
     private String description;

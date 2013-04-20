@@ -1,9 +1,20 @@
-function nextActivity(object) {
+function performActivity(object) {
     $.ajax({
-        url:"/activity",
-        data: object
-    }).done(function (result) {
-            $('#content').html(result);
-        });
+        dataType: "json",
+        url: "/activity",
+        data: object,
+        success: function (result) {
+            if (result.type == "html") {
+                $('#content').html(result.html);
+            } else if (result.type == "media") {
+                $('#content').html();
+            }
+
+        }
+    });
     return false;
+}
+
+function createVideoPlayer() {
+
 }

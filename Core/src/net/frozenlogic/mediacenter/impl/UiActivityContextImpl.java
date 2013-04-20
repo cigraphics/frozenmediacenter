@@ -6,7 +6,7 @@ import net.frozenlogic.mediacenter.activities.UiActivityContext;
 
 import java.util.Map;
 
-public class UiActivityContextImpl implements UiActivityContext {
+class UiActivityContextImpl implements UiActivityContext {
 
     private Activity currentActivity;
     private Activity defaultActivity;

@@ -17,14 +17,13 @@ public class BooksListActivity implements Activity {
 
     @Override
     public void initialize(ActivityContext activityContext) {
-
         UiActivityContext context = (UiActivityContext) activityContext;
         context.setModelAndView(new ModelAndView("/templates/goodreads/bookGroup.jsp", this.bookGroupList));
     }
 
     @Override
     public Activity perform(ActivityContext activityContext) {
-        return null;
+        return this;
     }
 
     @Override

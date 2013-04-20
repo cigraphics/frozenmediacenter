@@ -19,7 +19,7 @@ public class GoodreadsUserGroupActivity implements Activity {
     @Override
     public Activity perform(ActivityContext activityContext) {
         UiActivityContext context = (UiActivityContext) activityContext;
-        GoodreadsGroupClient client = new GoodreadsGroupClient();
+        GoodreadsClient client = new GoodreadsClient();
         try {
             List<GoodreadsUserGroup> results = client.getBookGroup();
             return new BooksListActivity(results);

@@ -5,7 +5,7 @@
     }
 </script>
 
-<form onsubmit="return nextActivity({ 'term': document.getElementById('goodreads-searchterm').value})">
+<form onsubmit="return performActivity({ 'term': document.getElementById('goodreads-searchterm').value})">
     <input type="text" id="goodreads-searchterm" name="goodreads-searchterm"/>
 
     <input type="submit" value="Cauta"/>

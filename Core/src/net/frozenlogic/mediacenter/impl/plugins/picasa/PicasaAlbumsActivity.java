@@ -8,24 +8,24 @@ import net.frozenlogic.mediacenter.activities.UiActivityContext;
 
 import java.util.List;
 
-public class PicasaPhotosShowAlbumActivity implements Activity {
+public class PicasaAlbumsActivity implements Activity {
 
     @Override
     public void initialize(ActivityContext activityContext) {
         UiActivityContext context = (UiActivityContext) activityContext;
+        PicasaClient client = new PicasaClient();
+        try {
+            List<Album> albums = client.getAlbums("default");
+            ModelAndView modelAndView = new ModelAndView("/templates/picasa/albumsList.jsp", albums);
+            context.setModelAndView(modelAndView);
+        } catch (PicasaClientException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public Activity perform(ActivityContext activityContext) {
-        UiActivityContext context = (UiActivityContext) activityContext;
-        PicasaPhotosClient photosClient = new PicasaPhotosClient();
-        try {
-            List<Photo> album = photosClient.getAlbum("default");
-            return new PicasaPhotosActivity(album);
-        }
-        catch (PicasaPhotosClientException ex) {
-            throw new RuntimeException(ex);
-        }
+        return this;
     }
 
     @Override

@@ -12,59 +12,65 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.GeneralSecurityException;
+import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
-class PicasaPhotosClient {
-        private String apiKey = "AIzaSyDhbUOu5nBkp0AbDltKuU0Y0puo4DQ0eiE";
-        private static String sessionToken = null;
-        PicasawebService picasawebService = new PicasawebService("MediaCenter");
+class PicasaClient {
+    private String apiKey = "AIzaSyDhbUOu5nBkp0AbDltKuU0Y0puo4DQ0eiE";
+    private static String sessionToken = null;
+    PicasawebService picasawebService = new PicasawebService("MediaCenter");
 
-    private void authenticate(){
+    private void authenticate() throws GeneralSecurityException, IOException, AuthenticationException {
         String url = "http://localhost:8080/gapitoken";
         String scope = "https://picasaweb.google.com/data/";
 
-        String subUrl = AuthSubUtil.getRequestUrl(url, scope, false, true);
+        String singleUseToken = AuthSubUtil.getRequestUrl(url, scope, false, true);
 
-    }
-
-    private  void authenticate(String singleUseToken) throws GeneralSecurityException, IOException, AuthenticationException {
         sessionToken = AuthSubUtil.exchangeForSessionToken(singleUseToken, null);
         picasawebService.setAuthSubToken(sessionToken, null);
     }
 
-    public List<Photo> getAlbum(String user) throws PicasaPhotosClientException {
+    public List<Album> getAlbums(String user) throws PicasaClientException {
+        try {
+            this.authenticate();
+        } catch (Exception ex) {
+            throw new PicasaClientException(ex);
+        }
         String uri = "https://picasaweb.google.com/data/feed/api/user/" + user + "/albumid/default";
         URL feedUrl;
-        try{
+        List<Album> albumList = new ArrayList<Album>();
+        try {
             feedUrl = new URL(uri);
             AlbumFeed feed = picasawebService.getFeed(feedUrl, AlbumFeed.class);
 
-            List<Photo> album = new ArrayList<Photo>();
+            Album album = new Album();
 
-            for (PhotoEntry photoEntry : feed.getPhotoEntries()){
+            for (PhotoEntry photoEntry : feed.getPhotoEntries()) {
                 Photo photo = new Photo();
 
                 photo.setTitle(photoEntry.getTitle().getPlainText());
                 photo.setDescription(photoEntry.getDescription().getPlainText());
 
                 List<MediaThumbnail> mediaThumbnails = photoEntry.getMediaThumbnails();
-                if (mediaThumbnails.size() > 0){
+
+                if (mediaThumbnails.size() > 0) {
                     photo.setPhotoThumbnail(photoEntry.getMediaThumbnails().get(0).getUrl());
                     photo.setPhotoContent(photoEntry.getMediaContents().get(0).getUrl());
                 }
 
-                album.add(photo);
+                album.getPhotoList().add(photo);
             }
-            return album;
-        }
 
-        catch (MalformedURLException ex){
-            throw new PicasaPhotosClientException(ex);
-        } catch (ServiceException ex) {
-            throw new PicasaPhotosClientException(ex);
-        } catch (IOException ex) {
-            throw new PicasaPhotosClientException(ex);
+            if (album.getPhotoList().size() > 0) {
+                album.setCover(album.getPhotoList().get(0));
+            }
+
+            albumList.add(album);
+
+            return albumList;
+        } catch (Exception ex) {
+            throw new PicasaClientException(ex);
         }
     }
 }

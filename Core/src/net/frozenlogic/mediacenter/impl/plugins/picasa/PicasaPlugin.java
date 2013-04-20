@@ -5,15 +5,18 @@ import net.frozenlogic.mediacenter.plugins.InteractionPlugin;
 import net.frozenlogic.mediacenter.plugins.PluginContext;
 import net.frozenlogic.mediacenter.plugins.PluginInfo;
 
-public class PicasaPhotosPlugin implements InteractionPlugin {
+public class PicasaPlugin implements InteractionPlugin {
     private PluginContext pluginContext;
+
     @Override
     public Activity getInteractionActivity() {
-        return new PicasaPhotosShowAlbumActivity();
+        return new PicasaAlbumsActivity();
     }
 
     @Override
-    public void initialize() {    }
+    public void initialize() {
+
+    }
 
     @Override
     public void setPluginContext(PluginContext context) {
@@ -22,7 +25,7 @@ public class PicasaPhotosPlugin implements InteractionPlugin {
 
     @Override
     public PluginInfo getPluginInfo() {
-        return new PicasaPhotosPluginInfo();
+        return new PicasaPluginInfo();
     }
 
     @Override

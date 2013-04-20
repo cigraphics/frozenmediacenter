@@ -3,7 +3,7 @@
     <c:forEach items="${model.getInteractionPlugins().keySet()}" var="idPlugin">
 
         <li>
-            <a href="javascript:nextActivity({ 'idPlugin': <c:out value='${idPlugin}'/> })">
+            <a href="javascript:performActivity({ 'idPlugin': <c:out value='${idPlugin}'/> })">
                 <c:out value="${model.getInteractionPlugins().get(idPlugin).getPluginInfo().getName()}"/>
             </a>
         </li>

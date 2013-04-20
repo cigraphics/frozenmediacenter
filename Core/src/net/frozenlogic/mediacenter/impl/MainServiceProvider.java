@@ -1,9 +1,14 @@
 package net.frozenlogic.mediacenter.impl;
 
+import flexjson.JSONSerializer;
 import net.frozenlogic.mediacenter.ServiceContext;
 import net.frozenlogic.mediacenter.ServiceProvider;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponseWrapper;
+import java.io.CharArrayWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class MainServiceProvider implements ServiceProvider {
     private ActivityManager activityManager;

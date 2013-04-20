@@ -20,6 +20,7 @@ import java.util.List;
 
 public class GoodreadsClient {
     private String apiKey = "QetVOVltGrCwRKYLxpbvg";
+    private String idUser = "1675997";
 
     public List<SearchResult> search(String keyword) throws GoodreadsClientException {
         List<SearchResult> resultList = new ArrayList<SearchResult>();
@@ -92,17 +93,63 @@ public class GoodreadsClient {
                     resultList.add(searchResult);
                 }
             }
-        }
-        catch (MalformedURLException ex) {
+        } catch (MalformedURLException ex) {
             throw new GoodreadsClientException(ex);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
+            throw new GoodreadsClientException(e);
+        } catch (ParserConfigurationException e) {
+            throw new GoodreadsClientException(e);
+        } catch (SAXException e) {
             throw new GoodreadsClientException(e);
         }
-        catch (ParserConfigurationException e) {
+
+        return resultList;
+    }
+
+    public List<GoodreadsUserGroup> getBookGroup() throws GoodreadsClientException {
+        List<GoodreadsUserGroup> resultList = new ArrayList<GoodreadsUserGroup>();
+        String uri = "http://www.goodreads.com/group/list/" + idUser + ".xml?key=" + apiKey;
+        URL url;
+        try {
+            url = new URL(uri);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            InputStream stream = connection.getInputStream();
+            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+            Document document = documentBuilder.parse(stream);
+            NodeList nodeList = document.getElementsByTagName("group");
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node node = nodeList.item(i);
+                if (node instanceof Element) {
+                    Element element = (Element) node;
+
+                    Node groupTitleNode = this.getSingleNode(element, "title");
+                    Node groupImageUrlNode = this.getSingleNode(element, "image_url");
+                    Node groupTypeNode = this.getSingleNode(element, "access");
+                    Node groupLastActivityNode = this.getSingleNode(element, "last_activity_at");
+
+                    String groupTitle = groupTitleNode.getTextContent();
+                    String groupImageUrl = groupImageUrlNode.getTextContent();
+                    String groupType = groupTypeNode.getTextContent();
+                    String groupLastActivity = groupLastActivityNode.getTextContent();
+
+
+                    GoodreadsUserGroup bookGroup = new GoodreadsUserGroup();
+                    bookGroup.setTitle(groupTitle);
+                    bookGroup.setThumbnailCoverUrl(groupImageUrl);
+                    bookGroup.setType(groupType);
+                    bookGroup.setLastActivity(groupLastActivity);
+                    resultList.add(bookGroup);
+
+                }
+            }
+        } catch (MalformedURLException ex) {
+            throw new GoodreadsClientException(ex);
+        } catch (IOException e) {
             throw new GoodreadsClientException(e);
-        }
-        catch (SAXException e) {
+        } catch (ParserConfigurationException e) {
+            throw new GoodreadsClientException(e);
+        } catch (SAXException e) {
             throw new GoodreadsClientException(e);
         }
 

@@ -5,7 +5,7 @@ import net.frozenlogic.mediacenter.plugins.PluginInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PicasaPhotosPluginInfo implements PluginInfo {
+public class PicasaPluginInfo implements PluginInfo {
 
     private List<String> authors;
 
