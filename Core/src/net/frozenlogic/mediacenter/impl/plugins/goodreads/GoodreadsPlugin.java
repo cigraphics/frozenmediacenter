@@ -1,8 +1,7 @@
-package net.frozenlogic.mediacenter.impl.goodreads;
+package net.frozenlogic.mediacenter.impl.plugins.goodreads;
 
 import net.frozenlogic.mediacenter.activities.Activity;
 import net.frozenlogic.mediacenter.plugins.InteractionPlugin;
-import net.frozenlogic.mediacenter.plugins.Plugin;
 import net.frozenlogic.mediacenter.plugins.PluginContext;
 import net.frozenlogic.mediacenter.plugins.PluginInfo;
 

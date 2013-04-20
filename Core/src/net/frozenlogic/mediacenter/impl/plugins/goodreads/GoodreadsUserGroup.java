@@ -1,4 +1,4 @@
-package net.frozenlogic.mediacenter.impl.goodreads;
+package net.frozenlogic.mediacenter.impl.plugins.goodreads;
 
 public class GoodreadsUserGroup {
     private String title;

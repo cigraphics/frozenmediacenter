@@ -6,4 +6,3 @@ public interface InteractionPlugin extends Plugin {
 
     Activity getInteractionActivity();
 }
-

@@ -1,4 +1,4 @@
-package net.frozenlogic.mediacenter.impl.goodreads;
+package net.frozenlogic.mediacenter.impl.plugins.goodreads;
 
 import net.frozenlogic.mediacenter.ModelAndView;
 import net.frozenlogic.mediacenter.activities.Activity;
