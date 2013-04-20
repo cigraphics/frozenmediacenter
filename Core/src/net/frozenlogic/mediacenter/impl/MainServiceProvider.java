@@ -19,9 +19,9 @@ public class MainServiceProvider implements ServiceProvider {
     @Override
     public void handle(ServiceContext context) {
         try {
-            context.getServletContext().getRequestDispatcher("/jsp/header.jsp").include(context.getRequest(), context.getResponse());
+            context.getServletContext().getRequestDispatcher("/templates/header.jsp").include(context.getRequest(), context.getResponse());
             this.getActivityManager().executeActivity(context);
-            context.getServletContext().getRequestDispatcher("/jsp/footer.jsp").include(context.getRequest(), context.getResponse());
+            context.getServletContext().getRequestDispatcher("/templates/footer.jsp").include(context.getRequest(), context.getResponse());
             context.getResponse().flushBuffer();
         } catch (Exception ex) {
             throw new RuntimeException(ex);

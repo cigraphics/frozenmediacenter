@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../images/background.jpg');
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+#header {
+    background: black;
+    padding: 10px;
+}
+
+#content {
+    text-align: center;
+}
+
+#logo {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#logo span {
+    font-weight: normal;
+}
