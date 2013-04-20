@@ -23,11 +23,17 @@ public class GoodreadsSearchResultsActivity implements Activity {
 
     @Override
     public Activity perform(ActivityContext activityContext) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        UiActivityContext context = (UiActivityContext) activityContext;
+        GoodreadsUtils utils = new GoodreadsUtils();
+        if (utils.isSearch(context)) {
+            return new GoodreadsSearchResultsActivity(utils.getSearchResults(context));
+        } else {
+            return this;
+        }
     }
 
     @Override
     public ActivityType getActivityType() {
         return ActivityType.UI;
     }
-    }
+}
