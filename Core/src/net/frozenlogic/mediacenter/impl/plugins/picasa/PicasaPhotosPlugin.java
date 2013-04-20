@@ -9,7 +9,7 @@ public class PicasaPhotosPlugin implements InteractionPlugin {
     private PluginContext pluginContext;
     @Override
     public Activity getInteractionActivity() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new PicasaPhotosShowAlbumActivity();
     }
 
     @Override
