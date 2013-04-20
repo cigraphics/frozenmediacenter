@@ -9,7 +9,6 @@ import net.frozenlogic.mediacenter.activities.UiActivityContext;
 import java.util.List;
 
 public class GoodreadsSearchResultsActivity implements Activity {
-    public GoodreadsSearchResultsActivity(List<SearchResult> results)
     private List<SearchResult> searchResultList;
 
     public GoodreadsSearchResultsActivity(List<SearchResult> searchResultList) {
@@ -32,4 +31,3 @@ public class GoodreadsSearchResultsActivity implements Activity {
         return ActivityType.UI;
     }
     }
-}

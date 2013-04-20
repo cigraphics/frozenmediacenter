@@ -8,7 +8,7 @@ import net.frozenlogic.mediacenter.activities.UiActivityContext;
 
 import java.util.List;
 
-public class BooksListActivity {
+public class BooksListActivity implements Activity {
     private List<GoodreadsUserGroup> bookGroupList;
 
     BooksListActivity(List<GoodreadsUserGroup> bookGroupList) {

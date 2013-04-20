@@ -2,6 +2,7 @@ package net.frozenlogic.mediacenter.impl.goodreads;
 
 import net.frozenlogic.mediacenter.activities.Activity;
 import net.frozenlogic.mediacenter.activities.ActivityContext;
+import net.frozenlogic.mediacenter.activities.ActivityType;
 import net.frozenlogic.mediacenter.activities.UiActivityContext;
 
 import java.util.List;

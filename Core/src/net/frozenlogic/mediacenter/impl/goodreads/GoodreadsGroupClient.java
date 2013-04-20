@@ -20,8 +20,8 @@ import java.util.List;
 public class GoodreadsGroupClient {
     private String apiKey = "QetVOVltGrCwRKYLxpbvg";
     private String idUser="1675997";
-    public List<BookGroup> getBookGroup() throws GoodreadsClientException{
-        List<BookGroup> resultList = new ArrayList<BookGroup>();
+    public List<GoodreadsUserGroup> getBookGroup() throws GoodreadsClientException{
+        List<GoodreadsUserGroup> resultList = new ArrayList<GoodreadsUserGroup>();
         String uri = "http://www.goodreads.com/group/list/"+idUser+".xml?key="+apiKey;
         URL url;
         try {
@@ -54,7 +54,7 @@ public class GoodreadsGroupClient {
                     //searchResult.setAverageRating(averageRating);
                     //searchResult.setRatingsCount(ratingsCount);
 
-                    BookGroup bookGroup=new BookGroup();
+                    GoodreadsUserGroup bookGroup=new GoodreadsUserGroup();
                     bookGroup.setTitle(groupTitle);
                     bookGroup.setThumbnailCoverUrl(groupImageUrl);
                     bookGroup.setType(groupType);

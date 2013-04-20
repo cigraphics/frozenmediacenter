@@ -1,9 +1,12 @@
 package net.frozenlogic.mediacenter.impl.goodreads;
 
+import net.frozenlogic.mediacenter.activities.Activity;
+import net.frozenlogic.mediacenter.plugins.InteractionPlugin;
+import net.frozenlogic.mediacenter.plugins.Plugin;
 import net.frozenlogic.mediacenter.plugins.PluginContext;
 import net.frozenlogic.mediacenter.plugins.PluginInfo;
 
-public class GoodreadsPlugin {
+public class GoodreadsPlugin implements InteractionPlugin {
     private PluginContext pluginContext;
 
     @Override
@@ -25,7 +28,7 @@ public class GoodreadsPlugin {
     @Override
     public Activity getInteractionActivity() {
         //  return new BooksSearchActivity();
-        return new BookGroupActivity();
+        return new GoodreadsUserGroupActivity();
     }
 
     @Override
