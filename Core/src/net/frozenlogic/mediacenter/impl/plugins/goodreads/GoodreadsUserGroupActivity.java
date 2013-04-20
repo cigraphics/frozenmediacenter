@@ -13,7 +13,7 @@ public class GoodreadsUserGroupActivity implements Activity {
     @Override
     public void initialize(ActivityContext activityContext) {
         UiActivityContext context = (UiActivityContext) activityContext;
-        context.setModelAndView(new ModelAndView("/templates/goodreads/search.jsp", new Object()));
+
     }
 
     @Override
