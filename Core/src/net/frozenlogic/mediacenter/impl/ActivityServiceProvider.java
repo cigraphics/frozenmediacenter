@@ -3,9 +3,8 @@ package net.frozenlogic.mediacenter.impl;
 import net.frozenlogic.mediacenter.ServiceContext;
 import net.frozenlogic.mediacenter.ServiceProvider;
 
-import java.io.IOException;
+class ActivityServiceProvider implements ServiceProvider {
 
-public class MainServiceProvider implements ServiceProvider {
     private ActivityManager activityManager;
 
     public ActivityManager getActivityManager() {
@@ -19,12 +18,12 @@ public class MainServiceProvider implements ServiceProvider {
     @Override
     public void handle(ServiceContext context) {
         try {
-            context.getServletContext().getRequestDispatcher("/jsp/header.jsp").include(context.getRequest(), context.getResponse());
             this.getActivityManager().executeActivity(context);
-            context.getServletContext().getRequestDispatcher("/jsp/footer.jsp").include(context.getRequest(), context.getResponse());
             context.getResponse().flushBuffer();
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             throw new RuntimeException(ex);
         }
     }
 }
+

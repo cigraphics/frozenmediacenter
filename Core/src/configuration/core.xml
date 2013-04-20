@@ -3,12 +3,28 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean name="MainServiceProvider" class="net.frozenlogic.mediacenter.impl.MainServiceProvider"/>
+    <bean name="MainActivity" class="net.frozenlogic.mediacenter.impl.SystemActivity"/>
+
+    <bean class="net.frozenlogic.mediacenter.impl.ActivityManager" name="ActivityManager" init-method="initialize">
+        <property name="defaultActivity" ref="MainActivity"/>
+    </bean>
+
+    <bean name="MainServiceProvider" class="net.frozenlogic.mediacenter.impl.MainServiceProvider">
+        <property name="activityManager" ref="ActivityManager"/>
+    </bean>
+
+    <bean name="ActivityServiceProvider" class="net.frozenlogic.mediacenter.impl.ActivityServiceProvider">
+        <property name="activityManager" ref="ActivityManager"/>
+    </bean>
+
+    <bean name="PluginsContainer" class="net.frozenlogic.mediacenter.impl.PluginsContainerImpl"
+          init-method="initialize"/>
 
     <bean class="net.frozenlogic.mediacenter.impl.ServiceProvidersManagerImpl" name="ServiceProvidersManager">
         <property name="serviceProviderMap">
             <map key-type="java.lang.String" value-type="net.frozenlogic.mediacenter.ServiceProvider">
                 <entry key="/" value-ref="MainServiceProvider"/>
+                <entry key="/activity" value-ref="ActivityServiceProvider"/>
             </map>
         </property>
     </bean>
