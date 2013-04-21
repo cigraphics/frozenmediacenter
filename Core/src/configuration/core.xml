@@ -5,8 +5,11 @@
 
     <bean name="MainActivity" class="net.frozenlogic.mediacenter.impl.SystemActivity"/>
 
-    <bean class="net.frozenlogic.mediacenter.impl.ActivityManager" name="ActivityManager" init-method="initialize">
+    <bean name="ActivityManager" class="net.frozenlogic.mediacenter.impl.ActivityManager" init-method="initialize">
         <property name="defaultActivity" ref="MainActivity"/>
+        <property name="mediaContext">
+            <bean class="net.frozenlogic.mediacenter.impl.MediaContextImpl"/>
+        </property>
     </bean>
 
     <bean name="MainServiceProvider" class="net.frozenlogic.mediacenter.impl.MainServiceProvider">

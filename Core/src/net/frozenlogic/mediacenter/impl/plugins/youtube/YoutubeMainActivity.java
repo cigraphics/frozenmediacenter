@@ -22,7 +22,7 @@ public class YoutubeMainActivity implements Activity {
             YoutubeClient youtubeClient = new YoutubeClient();
             List<YouTubeVideo> videos = youtubeClient.search("The dark knight");
 
-            return this;
+            return new YoutubeVideoListActivity(videos);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

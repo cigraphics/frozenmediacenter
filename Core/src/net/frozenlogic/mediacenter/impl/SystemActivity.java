@@ -11,6 +11,7 @@ import net.frozenlogic.mediacenter.plugins.Plugin;
 import net.frozenlogic.mediacenter.plugins.PluginContext;
 import net.frozenlogic.mediacenter.plugins.PluginsContainer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,15 +39,27 @@ class SystemActivity implements Activity {
             }
         } else {
             List<Plugin> plugins = pluginsContainer.getPlugins();
-            Map<Integer, InteractionPlugin> interactionPlugins = new HashMap<Integer, InteractionPlugin>();
+            List<PluginInformation> pluginInformations = new ArrayList<PluginInformation>();
             for (Plugin plugin : plugins) {
-                if (plugin instanceof InteractionPlugin) {
+                if (plugin instanceof InteractionPlugin || plugin instanceof CorePlugin) {
+                    boolean isCore = plugin instanceof CorePlugin;
                     PluginContext pluginContext = pluginsContainer.getPluginContext(plugin);
-                    interactionPlugins.put(pluginContext.getIdPlugin(), (InteractionPlugin) plugin);
+                    PluginInformation pluginInformation = new PluginInformation();
+                    pluginInformation.setCore(isCore);
+                    pluginInformation.setIdPlugin(pluginContext.getIdPlugin());
+                    pluginInformation.setName(plugin.getPluginInfo().getName());
+                    if (plugin instanceof CorePlugin) {
+                        CorePlugin corePlugin = (CorePlugin) plugin;
+                        pluginInformation.setBackgroundUrl(corePlugin.getThumbnailBackgroundUrl());
+                    } else {
+                        pluginInformation.setBackgroundUrl(plugin.getPluginInfo().getIconUrl());
+                    }
+
+                    pluginInformations.add(pluginInformation);
                 }
             }
 
-            MainMenu mainMenu = new MainMenu(interactionPlugins);
+            MainMenu mainMenu = new MainMenu(pluginInformations);
             context.setModelAndView(new ModelAndView("/templates/menu.jsp", mainMenu));
 
             return this;

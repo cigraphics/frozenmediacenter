@@ -34,4 +34,9 @@ public class PicasaPluginInfo implements PluginInfo {
     public String getVersion() {
         return "1.0";
     }
+
+    @Override
+    public String getIconUrl() {
+        return null;
+    }
 }

@@ -1,18 +1,16 @@
 package net.frozenlogic.mediacenter.impl;
 
-import net.frozenlogic.mediacenter.plugins.InteractionPlugin;
-
-import java.util.Map;
+import java.util.List;
 
 public class MainMenu {
 
-    private Map<Integer, InteractionPlugin> interactionPlugins;
+    private List<PluginInformation> plugins;
 
-    public MainMenu(Map<Integer, InteractionPlugin> interactionPlugins) {
-        this.interactionPlugins = interactionPlugins;
+    public MainMenu(List<PluginInformation> plugins) {
+        this.plugins = plugins;
     }
 
-    public Map<Integer, InteractionPlugin> getInteractionPlugins() {
-        return interactionPlugins;
+    public List<PluginInformation> getPlugins() {
+        return plugins;
     }
 }

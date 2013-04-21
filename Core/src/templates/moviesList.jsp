@@ -3,7 +3,6 @@
     <c:forEach items="${model.getMovieNames()}" var="movieName">
 
         <li>
-
             <c:out value="${movieName}"/>
         </li>
 

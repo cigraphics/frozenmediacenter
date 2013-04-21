@@ -29,4 +29,9 @@ public class BooksPluginInfo implements PluginInfo {
     public String getVersion() {
         return "1.0";
     }
+
+    @Override
+    public String getIconUrl() {
+        return "/resources/images/icons/goodreads.png";
+    }
 }

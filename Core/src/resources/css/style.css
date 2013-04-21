@@ -9,21 +9,95 @@ body {
 #header {
     background: black;
     padding: 10px;
-}
-
-#content {
-    text-align: center;
+    overflow: hidden;
 }
 
 #logo {
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
+    float: left;
 }
 
 #logo span {
     font-weight: normal;
 }
-table th, table td{
-    padding: 5px;
+
+#top-menu {
+    float: right;
 }
+
+#top-menu img {
+    width: 30px;
+}
+
+#top-menu a {
+    padding-right: 10px;
+}
+
+.core-item {
+    margin: 10px;
+    float: left;
+    box-shadow: 0px 0px 5px 2px black;
+}
+
+.core-item {
+    font-size: 40px;
+}
+
+.core-item .text {
+    margin-top: 80%;
+}
+
+.core-item a,
+.core-item a:visited {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+.core-item:hover,
+.core-item:hover a,
+.core-item:hover a:hover {
+    color: black;
+    cursor: pointer;
+}
+
+#main-menu {
+    width: 80%;
+    overflow: hidden;
+}
+
+#Filme {
+    width: 300px;
+    height: 300px;
+}
+
+#applications-menu img {
+    width: 50px;
+}
+
+h2 {
+    text-transform: uppercase;
+    color: white;
+    text-align: left;
+    padding: 10px 10% 10px 10%;
+    background: url('../images/background.png');
+}
+
+#apps {
+    padding: 0;
+    margin: 0;
+}
+
+#apps li {
+    display: inline-block;
+    list-style: none;
+}
+

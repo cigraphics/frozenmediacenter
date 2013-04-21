@@ -1,6 +1,6 @@
 package net.frozenlogic.mediacenter.impl.plugins.youtube;
 
-class YouTubeVideo {
+public class YouTubeVideo {
 
     private String url;
     private String title;

@@ -1,11 +1,12 @@
 package net.frozenlogic.mediacenter.impl.plugins;
 
 import net.frozenlogic.mediacenter.activities.Activity;
+import net.frozenlogic.mediacenter.impl.CorePlugin;
 import net.frozenlogic.mediacenter.plugins.InteractionPlugin;
 import net.frozenlogic.mediacenter.plugins.PluginContext;
 import net.frozenlogic.mediacenter.plugins.PluginInfo;
 
-public class MoviesPlugin implements InteractionPlugin {
+public class MoviesPlugin implements CorePlugin {
 
     private PluginContext pluginContext;
 
@@ -26,8 +27,13 @@ public class MoviesPlugin implements InteractionPlugin {
 
 
     @Override
-    public Activity getInteractionActivity() {
+    public Activity getMainActivity() {
         return new MoviesListActivity();
+    }
+
+    @Override
+    public String getThumbnailBackgroundUrl() {
+        return "/resources/images/movies.jpg";
     }
 
     @Override

@@ -30,5 +30,10 @@ public class MoviesPluginInfo implements PluginInfo {
     public String getVersion() {
         return "1.0";
     }
+
+    @Override
+    public String getIconUrl() {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 }
 

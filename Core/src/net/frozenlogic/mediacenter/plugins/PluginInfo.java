@@ -11,4 +11,6 @@ public interface PluginInfo {
     String getDescription();
 
     String getVersion();
+
+    String getIconUrl();
 }

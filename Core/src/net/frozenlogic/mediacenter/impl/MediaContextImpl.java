@@ -7,11 +7,11 @@ import net.frozenlogic.mediacenter.activities.MediaState;
 class MediaContextImpl implements MediaContext {
     @Override
     public Activity createMediaActivity(String url, MediaState mediaState) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return new MediaActivityImpl(url, mediaState);
     }
 
     @Override
     public MediaState getMediaState() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return MediaState.ACTIVE;
     }
 }

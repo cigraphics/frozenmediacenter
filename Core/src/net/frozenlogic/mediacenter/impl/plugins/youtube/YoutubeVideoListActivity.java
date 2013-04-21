@@ -1,14 +1,24 @@
 package net.frozenlogic.mediacenter.impl.plugins.youtube;
 
+import net.frozenlogic.mediacenter.ModelAndView;
 import net.frozenlogic.mediacenter.activities.Activity;
 import net.frozenlogic.mediacenter.activities.ActivityContext;
 import net.frozenlogic.mediacenter.activities.MediaContext;
 import net.frozenlogic.mediacenter.activities.MediaState;
 
+import java.util.List;
+
 public class YoutubeVideoListActivity implements Activity {
+
+    private List<YouTubeVideo> videoList;
+
+    public YoutubeVideoListActivity(List<YouTubeVideo> videoList) {
+        this.videoList = videoList;
+    }
+
     @Override
     public void initialize(ActivityContext activityContext) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        activityContext.getUiContext().setModelAndView(new ModelAndView("/templates/youtube/videoList.jsp", this.videoList));
     }
 
     @Override
@@ -17,6 +27,6 @@ public class YoutubeVideoListActivity implements Activity {
         YouTubeUrlBuilder builder = new YouTubeUrlBuilder();
 
         String youtubeUrl = activityContext.getUiContext().getParameter("videoId");
-        return mediaContext.createMediaActivity(youtubeUrl, MediaState.ACTIVE);
+        return mediaContext.createMediaActivity(builder.createYouTubeUrl(youtubeUrl), MediaState.ACTIVE);
     }
 }
