@@ -6,8 +6,6 @@ public interface Activity {
 
     void initialize(ActivityContext activityContext);
 
-    Activity perform(ActivityContext activityContext) throws PicasaClientException;
-
-    ActivityType getActivityType();
+    Activity perform(ActivityContext activityContext);
 }
 

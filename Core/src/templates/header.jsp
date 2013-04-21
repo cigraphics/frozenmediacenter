@@ -9,4 +9,7 @@
 <div id="header">
     <div id="logo">Media<span>Center</span></div>
 </div>
+<a href="javascript:restoreDefaultActivity()">Home</a>
+<a href="javascript:restorePreviousActivity()">Inapoi</a>
+
 <div id="content">

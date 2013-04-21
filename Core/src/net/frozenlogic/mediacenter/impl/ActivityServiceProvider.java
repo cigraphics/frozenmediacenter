@@ -37,16 +37,22 @@ class ActivityServiceProvider implements ServiceProvider {
 
             ServiceContext serviceContext = new ServiceContextImpl(context.getRequest(), wrapper, context.getServletContext());
 
-            this.getActivityManager().executeActivity(serviceContext);
+            String type = context.getRequest().getParameter("type");
+            if (type == null || type.equals("current")) {
+                this.getActivityManager().executeActivity(serviceContext);
+            } else if (type.equals("previous")) {
+                this.getActivityManager().restorePreviousActivity(serviceContext);
+            } else if (type.equals("default")) {
+                this.getActivityManager().restoreDefaultActivity(serviceContext);
+            }
 
-            HtmlResponse response = new HtmlResponse(writer.toString());
+            JsonResponse response = new JsonResponse(writer.toString());
             String responseJson = serializer.serialize(response);
 
             context.getResponse().setContentType("application/json");
             context.getResponse().getWriter().append(responseJson);
             context.getResponse().flushBuffer();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
     }

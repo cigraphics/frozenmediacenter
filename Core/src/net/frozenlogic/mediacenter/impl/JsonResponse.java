@@ -2,10 +2,10 @@ package net.frozenlogic.mediacenter.impl;
 
 import java.io.Serializable;
 
-class HtmlResponse implements Serializable {
+class JsonResponse implements Serializable {
     private String html;
 
-    public HtmlResponse(String html) {
+    public JsonResponse(String html) {
         this.html = html;
     }
 

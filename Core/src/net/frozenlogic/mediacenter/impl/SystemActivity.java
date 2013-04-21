@@ -5,7 +5,7 @@ import net.frozenlogic.mediacenter.ModelAndView;
 import net.frozenlogic.mediacenter.activities.Activity;
 import net.frozenlogic.mediacenter.activities.ActivityContext;
 import net.frozenlogic.mediacenter.activities.ActivityType;
-import net.frozenlogic.mediacenter.activities.UiActivityContext;
+import net.frozenlogic.mediacenter.activities.UiContext;
 import net.frozenlogic.mediacenter.plugins.InteractionPlugin;
 import net.frozenlogic.mediacenter.plugins.Plugin;
 import net.frozenlogic.mediacenter.plugins.PluginContext;
@@ -18,17 +18,17 @@ import java.util.Map;
 class SystemActivity implements Activity {
     @Override
     public void initialize(ActivityContext activityContext) {
-
+        this.perform(activityContext);
     }
 
     @Override
     public Activity perform(ActivityContext activityContext) {
-        UiActivityContext context = (UiActivityContext) activityContext;
+        UiContext context = activityContext.getUiContext();
 
         PluginsContainer pluginsContainer = FrameworkUtils.getPluginsContainer();
 
-        if (context.getParameters().containsKey("idPlugin")) {
-            Integer idPlugin = Integer.parseInt(context.getParameters().get("idPlugin")[0]);
+        if (context.isParameterSet("idPlugin")) {
+            Integer idPlugin = Integer.parseInt(context.getParameter("idPlugin"));
             Plugin plugin = pluginsContainer.getPlugin(idPlugin);
             if (plugin instanceof InteractionPlugin) {
                 InteractionPlugin interactionPlugin = (InteractionPlugin) plugin;
@@ -51,10 +51,5 @@ class SystemActivity implements Activity {
 
             return this;
         }
-    }
-
-    @Override
-    public ActivityType getActivityType() {
-        return ActivityType.UI;
     }
 }

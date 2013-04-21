@@ -1,4 +1,4 @@
-package net.frozenlogic.mediacenter.impl.plugins.picasa;
+package net.frozenlogic.mediacenter.impl.plugins.youtube;
 
 import net.frozenlogic.mediacenter.ModelAndView;
 import net.frozenlogic.mediacenter.activities.Activity;
@@ -8,21 +8,23 @@ import net.frozenlogic.mediacenter.activities.UiContext;
 
 import java.util.List;
 
-public class PicasaPhotosActivity implements Activity {
-    private List<Photo> album;
-
-    public PicasaPhotosActivity(List<Photo> album) {
-        this.album = album;
-    }
-
+public class YoutubeMainActivity implements Activity {
     @Override
     public void initialize(ActivityContext activityContext) {
         UiContext context = activityContext.getUiContext();
-        context.setModelAndView(new ModelAndView("/templates/picasa/albumsList.jsp", this.album));
+        ModelAndView modelAndView = new ModelAndView("/templates/youtube/search.jsp", new Object());
+        context.setModelAndView(modelAndView);
     }
 
     @Override
     public Activity perform(ActivityContext activityContext) {
-        return null;
+        try {
+            YoutubeClient youtubeClient = new YoutubeClient();
+            List<YouTubeVideo> videos = youtubeClient.search("The dark knight");
+
+            return this;
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }

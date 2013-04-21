@@ -1,18 +1,32 @@
 function performActivity(object) {
+    object.type = "current";
+    getJson("/activity", object, handleResponse);
+    return false;
+}
+
+function handleResponse(result) {
+    if (result.type == "html") {
+        $('#content').html(result.html);
+    } else if (result.type == "media") {
+        $('#content').html();
+    }
+}
+
+function getJson(url, data, successHandler) {
     $.ajax({
         dataType: "json",
-        url: "/activity",
-        data: object,
-        success: function (result) {
-            if (result.type == "html") {
-                $('#content').html(result.html);
-            } else if (result.type == "media") {
-                $('#content').html();
-            }
-
-        }
+        url: url,
+        data: data,
+        success: successHandler
     });
-    return false;
+}
+
+function restoreDefaultActivity() {
+    getJson("/activity", {'type': 'default'}, handleResponse);
+}
+
+function restorePreviousActivity(object) {
+    getJson("/activity", {'type': 'previous'}, handleResponse);
 }
 
 function createVideoPlayer() {

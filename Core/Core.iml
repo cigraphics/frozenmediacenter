@@ -12,10 +12,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="spring-mvc-3.2.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Jetty" level="project" />
     <orderEntry type="library" name="spring-3.2.2" level="project" />
-    <orderEntry type="library" name="aopalliance-1.0" level="project" />
-    <orderEntry type="library" name="google.gdata" level="project" />
-    <orderEntry type="library" name="google.oauth2" level="project" />
+    <orderEntry type="library" name="flexjson-2.1" level="project" />
+    <orderEntry type="library" name="Google" level="project" />
   </component>
 </module>
 

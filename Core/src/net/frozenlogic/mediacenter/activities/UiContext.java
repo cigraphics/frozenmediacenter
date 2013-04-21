@@ -4,9 +4,11 @@ import net.frozenlogic.mediacenter.ModelAndView;
 
 import java.util.Map;
 
-public interface UiActivityContext extends ActivityContext {
+public interface UiContext {
 
     void setModelAndView(ModelAndView modelAndView);
 
-    Map<String, String[]> getParameters();
+    String getParameter(String name);
+
+    boolean isParameterSet(String name);
 }
