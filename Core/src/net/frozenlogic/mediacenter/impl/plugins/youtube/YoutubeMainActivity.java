@@ -20,7 +20,8 @@ public class YoutubeMainActivity implements Activity {
     public Activity perform(ActivityContext activityContext) {
         try {
             YoutubeClient youtubeClient = new YoutubeClient();
-            List<YouTubeVideo> videos = youtubeClient.search("The dark knight");
+            String searchTerm = activityContext.getUiContext().getParameter("term");
+            List<YouTubeVideo> videos = youtubeClient.search(searchTerm);
 
             return new YoutubeVideoListActivity(videos);
         } catch (Exception ex) {

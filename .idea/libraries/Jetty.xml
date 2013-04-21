@@ -1,0 +1,35 @@
+<component name="libraryTable">
+  <library name="Jetty">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Core/lib/javax.el-2.2.0.v201303151357.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/javax.servlet.jsp-2.2.0.v201112011158.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/javax.servlet.jsp.jstl-1.2.0.v201105211821.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-annotations-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-client-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-continuation-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-deploy-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-http-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-io-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-jaas-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-jmx-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-jndi-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-plus-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-proxy-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-rewrite-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-security-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-server-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-servlet-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-servlets-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-util-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-webapp-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/jetty-xml-9.0.2.v20130417.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/org.apache.jasper.glassfish-2.2.2.v201112011158.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/org.apache.taglibs.standard.glassfish-1.2.0.v201112081803.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/org.eclipse.jdt.core-3.8.2.v20130121.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/servlet-api-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Core/lib/com.sun.el-2.2.0.v201303151357.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
